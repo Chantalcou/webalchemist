@@ -8,13 +8,15 @@ const chatBotRoutes = require("./routes/chatBotRoutes");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = process.env.PORT || 5000;  // Asegúrate de que 'PORT' esté usando process.env.PORT en producción.
+const PORT = process.env.PORT || 5000; // Asegúrate de que 'PORT' cd ../esté usando process.env.PORT en producción.
 
 app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
-    origin: "https://webalchemist-2.onrender.com",  // Asegúrate de que esta URL sea correcta.
+    origin: "https://webalchemist-2.onrender.com",
+
+    // origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
