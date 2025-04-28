@@ -1,0 +1,20 @@
+.whatsapp-link {
+    position: fixed;
+    bottom: 0px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    z-index: 50000;
+  }
+  
+  .whatsapp-link img {
+    margin-right: 10px;
+    width: 70px;
+  }
+  
