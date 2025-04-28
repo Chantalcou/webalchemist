@@ -37,9 +37,12 @@ const ChatBot = () => {
     setIsLoading(true);
   
     try {
-      const response = await axios.post('https://webalchemist-2.onrender.com/chatbot', {
-        message: inputMessage
-      });
+      const response = await axios.post(
+        'https://webalchemist-2.onrender.com/chatbot',
+        { message: inputMessage },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      
   
       setMessages(prev => [...prev, { text: response.data.reply, isBot: true }]);
     } catch (error) {
