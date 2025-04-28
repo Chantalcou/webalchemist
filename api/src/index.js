@@ -13,7 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    origin: "https://webalchemist-1.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -24,7 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text({ type: "application/json" })); // Por si viene como texto
 app.use(bodyParser.raw({ type: "application/octet-stream" }));
 
-
 // Ruta ChatBot
 app.use("/", chatBotRoutes);
 
@@ -32,7 +32,6 @@ app.use("/", chatBotRoutes);
 if (process.env.NODE_ENV === "production") {
   // Configura la ruta correcta para los archivos estáticos del frontend
   app.use(express.static(path.join(__dirname, "../../client_temp/build")));
-
 
   // Ruta catch-all para servir el frontend
   app.get("*", (req, res) => {
@@ -50,4 +49,3 @@ app.use((err, req, res, next) => {
     .status(500)
     .json({ error: "Ha ocurrido un error interno en el servidor" });
 });
-
