@@ -8,13 +8,13 @@ const chatBotRoutes = require("./routes/chatBotRoutes");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;  // Asegúrate de que 'PORT' esté usando process.env.PORT en producción.
+
 app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
-    // origin: "http://localhost:3000",
-    origin: "https://webalchemist-1.onrender.com",
+    origin: "https://webalchemist-1.onrender.com",  // Asegúrate de que esta URL sea correcta.
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -30,14 +30,15 @@ app.use("/", chatBotRoutes);
 
 // Sirve el frontend React (solo en producción)
 if (process.env.NODE_ENV === "production") {
-  // Configura la ruta correcta para los archivos estáticos del frontend
-  app.use(express.static(path.join(__dirname, "../../client_temp/build")));
+  // Cambia esta ruta para apuntar a la carpeta 'build' correcta
+  app.use(express.static(path.join(__dirname, "client/build")));
 
   // Ruta catch-all para servir el frontend
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../../client_temp/build", "index.html"));
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
+
 app.listen(PORT, () => {
   console.log(`Servidor backend corriendo en puerto ${PORT}`);
 });
