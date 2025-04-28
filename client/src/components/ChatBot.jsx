@@ -37,7 +37,7 @@ const ChatBot = () => {
     setIsLoading(true);
   
     try {
-      const response = await axios.post('http://localhost:5001/chatbot', {
+      const response = await axios.post('https://webalchemist-2.onrender.com/chatbot', {
         message: inputMessage
       });
   
