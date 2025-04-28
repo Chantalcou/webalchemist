@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middlewares
 app.use(
   cors({
-    origin: "https://webalchemist-1.onrender.com",  // Asegúrate de que esta URL sea correcta.
+    origin: "https://webalchemist-2.onrender.com",  // Asegúrate de que esta URL sea correcta.
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
