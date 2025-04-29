@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-
 const chatBotRoutes = require("./routes/chatBotRoutes");
 
 const app = express();
@@ -24,7 +23,7 @@ app.use(bodyParser.text({ type: "application/json" }));
 app.use(bodyParser.raw({ type: "application/octet-stream" }));
 
 // Rutas de la API
-app.use("/chatbot", chatBotRoutes);
+app.use("/", chatBotRoutes);
 
 // Servir frontend React (solo en producción)
 if (process.env.NODE_ENV === "production") {
