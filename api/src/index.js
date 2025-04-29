@@ -23,16 +23,18 @@ app.use(bodyParser.text({ type: "application/json" }));
 app.use(bodyParser.raw({ type: "application/octet-stream" }));
 
 // Rutas de la API
-app.use("/chatbot", chatBotRoutes);
+app.use("/", chatBotRoutes);
 
 
-// Servir frontend React (solo en producción)
+// Sirve el frontend React (solo en producción)
 if (process.env.NODE_ENV === "production") {
-  const clientBuildPath = path.join(__dirname, "client", "build");
-  app.use(express.static(clientBuildPath));
+  // Configura la ruta correcta para los archivos estáticos del frontend
+  app.use(express.static(path.join(__dirname, "../../client_temp/build")));
+  console.log(path.join(__dirname, "../client_temp/build"));
 
+  // Ruta catch-all para servir el frontend
   app.get("*", (req, res) => {
-    res.sendFile(path.join(clientBuildPath, "index.html"));
+    res.sendFile(path.join(__dirname, "../../client_temp/build", "index.html"));
   });
 }
 
