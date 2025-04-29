@@ -26,7 +26,11 @@ const ChatBot = () => {
   const toggleChat = () => {
     const newState = !isMinimized;
     setIsMinimized(newState);
-    localStorage.setItem('chatbotState', newState ? 'minimized' : 'open');
+    
+    // Solo guardar el estado si no es móvil
+    if (window.innerWidth > 768) {
+      localStorage.setItem('chatbotState', newState ? 'minimized' : 'open');
+    }
   };
   const handleSend = async () => {
     if (!inputMessage.trim()) return;
@@ -39,6 +43,7 @@ const ChatBot = () => {
     try {
       const response = await axios.post(
         'https://webalchemist-2.onrender.com/chatbot',
+        //  "http://localhost:3000",
         { message: inputMessage },
         { headers: { 'Content-Type': 'application/json' } }
       );
@@ -55,7 +60,19 @@ const ChatBot = () => {
       setIsLoading(false);
     }
   };
-
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 768;
+      
+      // Si cambia a móvil y no hay estado guardado, minimizar
+      if (isMobile && !localStorage.getItem('chatbotState')) {
+        setIsMinimized(true);
+      }
+    };
+  
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   if (isMinimized) {
     return (
@@ -73,6 +90,7 @@ const ChatBot = () => {
       </motion.button>
     );
   }
+
 
   return (
     <motion.div 
