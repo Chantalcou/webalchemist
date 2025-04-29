@@ -23,7 +23,8 @@ app.use(bodyParser.text({ type: "application/json" }));
 app.use(bodyParser.raw({ type: "application/octet-stream" }));
 
 // Rutas de la API
-app.use("/", chatBotRoutes);
+app.use("/chatbot", chatBotRoutes);
+
 
 // Servir frontend React (solo en producción)
 if (process.env.NODE_ENV === "production") {

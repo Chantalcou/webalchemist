@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const { sendChatMessage } = require("../controller/chatBotController");
 
-router.post("/chatbot", sendChatMessage);
+
+router.post("/", sendChatMessage);
+
+
 
 module.exports = router;
