@@ -8,8 +8,9 @@
 # testing
 /coverage
 
-# production
-/build
+# Ignorá solo el build global si sabés que no usás carpetas build afuera del client
+!/client/build
+
 
 # misc
 .DS_Store
