@@ -7,12 +7,19 @@ const ChatBot = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(true); // Estado inicial minimizado
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
     const savedState = localStorage.getItem('chatbotState');
-    setIsMinimized(savedState === 'minimized');
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      setIsMinimized(true);
+      localStorage.removeItem('chatbotState');
+    } else {
+      setIsMinimized(savedState ? savedState === 'minimized' : true);
+    }
   }, []);
 
   const scrollToBottom = () => {
@@ -27,11 +34,26 @@ const ChatBot = () => {
     const newState = !isMinimized;
     setIsMinimized(newState);
     
-    // Solo guardar el estado si no es móvil
     if (window.innerWidth > 768) {
       localStorage.setItem('chatbotState', newState ? 'minimized' : 'open');
+    } else {
+      localStorage.removeItem('chatbotState');
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile && !isMinimized) {
+        setIsMinimized(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMinimized]);
+
   const handleSend = async () => {
     if (!inputMessage.trim()) return;
   
@@ -42,38 +64,24 @@ const ChatBot = () => {
   
     try {
       const response = await axios.post(
+        // "http://localhost:3000", 
         'https://webalchemist-2.onrender.com/chatbot',
-        //  "http://localhost:3000",
         { message: inputMessage },
         { headers: { 'Content-Type': 'application/json' } }
       );
       
-  
       setMessages(prev => [...prev, { text: response.data.reply, isBot: true }]);
     } catch (error) {
-      console.error("Error al enviar al backend:", error);
+      console.error("Error:", error);
       setMessages(prev => [...prev, {
-        text: "Lo siento, hubo un error al comunicarme con el servidor.",
+        text: "Error de conexión con el servidor.",
         isBot: true
       }]);
     } finally {
       setIsLoading(false);
     }
   };
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobile = window.innerWidth <= 768;
-      
-      // Si cambia a móvil y no hay estado guardado, minimizar
-      if (isMobile && !localStorage.getItem('chatbotState')) {
-        setIsMinimized(true);
-      }
-    };
-  
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  
+
   if (isMinimized) {
     return (
       <motion.button
@@ -91,13 +99,11 @@ const ChatBot = () => {
     );
   }
 
-
   return (
     <motion.div 
       className="chatbot-container"
       initial={{ opacity: 0, y: 20, scale: 0.5 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.5 }}
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
     >
       <div className="chatbot-header">
@@ -127,7 +133,6 @@ const ChatBot = () => {
               className={`message ${message.isBot ? 'bot' : 'user'}`}
               initial={{ opacity: 0, x: message.isBot ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
               <div className="message-content">
@@ -138,6 +143,7 @@ const ChatBot = () => {
             </motion.div>
           ))}
         </AnimatePresence>
+        
         {isLoading && (
           <motion.div 
             className="message bot loading"
