@@ -12,15 +12,16 @@ const Pricing = () => {
           <Rocket className="icon" /> Pack Básico
         </>
       ),
-      price: "100.000",
+      price: "150.000",
       features: [
         "Landing page profesional",
         "Diseño 100% responsive ",
-        "Optimización SEO básica",
+        
         "Integración con WhatsApp",
+        "Integración con redes sociales"
         // "Tiempo de entrega rápido (5-7 días)",
       ],
-      maintenance: "Mantenimiento $10/mes",
+      maintenance: "Mantenimiento $10.000/mes",
     },
     {
       name: (
@@ -28,29 +29,30 @@ const Pricing = () => {
           <Layers className="icon" /> Pack Intermedio
         </>
       ),
-      price: "150.000",
+      price: "200.000",
       features: [
         "Todo lo del Pack Básico +",
         "Hasta 3 secciones adicionales",
         "Formulario de contacto",
         "Galería interactiva de imágenes",
+    
       ],
-      maintenance: "Mantenimiento desde $20/mes",
+      maintenance: "Mantenimiento desde $10.000/mes",
     },
-    {
-      name: (
-        <>
-          <Cpu className="icon" /> Pack Avanzado
-        </>
-      ),
-      price: "300.000",
-      features: [
-        "Todo lo del Pack Intermedio +",
-        "Dashboard de administración",
-        "Sistema de carga de productos",
-        "Chatbot personalizado",
-      ],
-    },
+    // {
+    //   name: (
+    //     <>
+    //       <Cpu className="icon" /> Pack Avanzado
+    //     </>
+    //   ),
+    //   price: "350.000",
+    //   features: [
+    //     "Todo lo del Pack Intermedio +",
+    //     "Dashboard de administración",
+    //     "Sistema de carga de productos",
+    //     "Chatbot personalizado",
+    //   ],
+    // },
     // {
     //   name: "🌎 Ecommerce Plus",
     //   price: "1499",
@@ -116,7 +118,7 @@ const Pricing = () => {
           </div>
         ))}
       </div>
-
+{/* 
       <div className="maintenance-section">
         <h3>🔁 Servicio de Mantenimiento</h3>
         <div className="maintenance-features">
@@ -138,7 +140,7 @@ const Pricing = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

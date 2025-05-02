@@ -5,18 +5,18 @@ import "./Projects.css";
 const Projects = () => {
   const projects = [
     {
-      title: "E-commerce Luxury",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      title: "Galeria de imágenes",
+      image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1746013711/Galeria_mcxgk4.png",
       link: "#"
     },
     {
-      title: "Education Platform",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
+      title: "Galeria de productos",
+      image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1746184189/galery_jewdub.png",
       link: "#"
     },
     {
-      title: "Corporate Dashboard",
-      image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      title: "Landing",
+      image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1746187461/doctors_yct0n8.png",
       link: "#"
     },
   ];
@@ -64,9 +64,9 @@ const Projects = () => {
                 <div className="project-overlay">
                   <h3 className="project-title">{project.title}</h3>
                   <div className="project-line"></div>
-                  <a href={project.link} className="project-link">
+                  {/* <a href={project.link} className="project-link">
                     View Project →
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </motion.div>

@@ -3,6 +3,9 @@ import Projects from "./Projects";
 import Testimonials from "./Testimonials";
 import ContactForm from "./ContactForm";
 import Pricing from "./Pricing";
+import PortfolioLanding from "./PortfolioLanding";
+import ProductGallery from "./ProductGallery";
+import TargetSection from './TargetSection'
 import $ from "jquery";
 import "./LandingPage.css";
 
@@ -46,11 +49,14 @@ const LandingPage = () => {
           </div>
         </section> */}
       </div>
+      <TargetSection/>
       <Projects />
       <Pricing />
 
       <ContactForm />
       <Testimonials />
+      {/* <ProductGallery /> */}
+      {/* <PortfolioLanding /> */}
     </>
   );
 };

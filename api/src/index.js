@@ -27,21 +27,14 @@ app.use(bodyParser.raw({ type: "application/octet-stream" }));
 // Rutas de la API
 app.use("/", chatBotRoutes);
 
-console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log(__dirname);
-console.log(path.join(__dirname, "../../client/build"));
-console.log("holaaaaaaaaaaaaaaaa");
-
 // Sirve el frontend React (solo en producción)
 if (process.env.NODE_ENV === "production") {
   // Configura la ruta correcta para los archivos estáticos del frontend
   app.use(express.static(path.join(__dirname, "../../client/build")));
-  console.log(path.join(__dirname, "../../client/build"));
 
   // Ruta catch-all para servir el frontend
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../../client/build", "index.html"));
-    console.log(path.join(__dirname, "../client/build"));
   });
 }
 
@@ -55,5 +48,4 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Servidor backend corriendo en el puerto ${PORT}`);
-  console.log(path.join(__dirname, "../../client/build"));
 });

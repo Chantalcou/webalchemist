@@ -1,0 +1,215 @@
+/* ProductGallery.css */
+:root {
+    --primary-accent: #0a9d6d;
+    --dark-bg: #1a1a1a;
+    --light-text: #f8f9fa;
+    --hover-transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .product-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--hover-transition);
+    transform-origin: center;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-container {
+    position: relative;
+    aspect-ratio: 3/4;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--hover-transition);
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0) 40%, rgba(26, 26, 26, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: var(--hover-transition);
+  }
+  
+  .product-card:hover .image-overlay {
+    opacity: 1;
+  }
+  
+  .product-info {
+    transform: translateY(20px);
+    transition: var(--hover-transition);
+  }
+  
+  .product-card:hover .product-info {
+    transform: translateY(0);
+  }
+  
+  .product-title {
+    color: var(--light-text);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .product-price {
+    color: var(--primary-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .quick-view-button {
+    align-self: flex-end;
+    background: var(--primary-accent);
+    color: var(--light-text);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--hover-transition);
+    transform: translateY(20px);
+    opacity: 0;
+    font-weight: 500;
+  }
+  
+  .product-card:hover .quick-view-button {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .quick-view-button:hover {
+    background: #08825c;
+    box-shadow: 0 4px 12px rgba(10, 157, 109, 0.3);
+  }
+  
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+  
+  .quick-view-button:hover .arrow-icon {
+    transform: translateX(3px);
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-container {
+      grid-template-columns: 1fr;
+      padding: 2rem 1rem;
+    }
+    
+    .image-overlay {
+      opacity: 1;
+      padding: 1rem;
+    }
+    
+    .product-info {
+      transform: translateY(0);
+    }
+    
+    .quick-view-button {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  /* ProductGallery.css - Actualizado */
+:root {
+    --primary-accent: #0a9d6d;
+    --dark-bg: #1a1a1a;
+    --light-text: #f8f9fa;
+    --hover-transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .products-section {
+    padding: 8rem 2rem;
+    background: #ffffff;
+  }
+  
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #282828;
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title-decorator {
+    color: var(--primary-accent);
+    font-weight: 300;
+    opacity: 0.7;
+  }
+  
+  .section-subtitle {
+    color: #7BA12D;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+  }
+  
+  /* Resto de estilos se mantienen igual... */
+  
+  /* Añadir al final del archivo */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+      gap: 1rem;
+    }
+    
+    .section-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 1.8rem;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .title-decorator {
+      display: none;
+    }
+  }
