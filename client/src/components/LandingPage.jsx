@@ -15,9 +15,9 @@ const LandingPage = () => {
       <div className="landing-container">
         <section className="hero-section">
           <div className="hero-content">
-            <h1>Tu idea merece una web hecha a su medida</h1>
+            <h1>Llevá tu emprendimiento al próximo nivel</h1>
 
-            <p>Transformamos tu visión en una web funcional, única y potente</p>
+            <p>Mostrá tu catálogo, conectá con tus clientes y destacate con una web profesional hecha a medida.</p>
             <button
               className="cta-button"
               onClick={() => {

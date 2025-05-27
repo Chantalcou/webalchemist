@@ -12,7 +12,7 @@ const Pricing = () => {
           <Rocket className="icon" /> Pack Básico
         </>
       ),
-      price: "150.000",
+      price: "200.000",
       features: [
         "Landing page profesional",
         "Diseño 100% responsive ",
@@ -29,15 +29,15 @@ const Pricing = () => {
           <Layers className="icon" /> Pack Intermedio
         </>
       ),
-      price: "200.000",
+      price: "250.000",
       features: [
         "Todo lo del Pack Básico +",
         "Hasta 3 secciones adicionales",
         "Formulario de contacto",
-        "Galería interactiva de imágenes",
+        "Galería interactiva de imágenes + Detalle del producto",
     
       ],
-      maintenance: "Mantenimiento desde $10.000/mes",
+      maintenance: "Mantenimiento $10.000/mes",
     },
     // {
     //   name: (

@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 // Middlewares globales
 app.use(
   cors({
-    origin: "https://webalchemist-2.onrender.com",
+    origin: "https://www.alchemist-web.com",
     // origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,

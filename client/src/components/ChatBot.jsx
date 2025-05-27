@@ -65,7 +65,7 @@ const ChatBot = () => {
     try {
       const response = await axios.post(
         // "http://localhost:3000", 
-        'https://webalchemist-2.onrender.com/chatbot',
+        'https://www.alchemist-web.com/chatbot',
         { message: inputMessage },
         { headers: { 'Content-Type': 'application/json' } }
       );

@@ -7,9 +7,7 @@ const TargetSection = () => {
     <section className="target-section">
       <div className="target-container">
         <div className="section-header">
-          <h2 className="section-title">
-            ¿Es esto para <span className="highlight">vos</span>?
-          </h2>
+   
           <p className="section-subtitle">
             Si buscás una presencia digital profesional y accesible, estás en el lugar correcto
           </p>

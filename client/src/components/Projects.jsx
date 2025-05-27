@@ -5,8 +5,8 @@ import "./Projects.css";
 const Projects = () => {
   const projects = [
     {
-      title: "Galeria de imágenes",
-      image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1746013711/Galeria_mcxgk4.png",
+      title: "Home",
+      image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1747831137/WhatsApp_Image_2025-05-20_at_13.34.55_zs5agf.jpg",
       link: "#"
     },
     {
