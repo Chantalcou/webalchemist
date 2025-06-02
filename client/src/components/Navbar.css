@@ -29,12 +29,6 @@
   align-items: center;
 }
 
-/* Logo */
-.logo img {
-  height: 150px;
-  width: auto;
-  display: block;
-}
 
 .nav-links {
   display: flex;
@@ -60,5 +54,53 @@
 
   .logo img {
     height: 30px;
+  }
+}
+
+/* LOGO */
+/* Logo Group */
+.logo-group {
+  display: flex;
+  align-items: center;
+
+}
+
+/* Logo Styles */
+.alchemist-logo {
+  height: 100px!important; 
+  width: auto;
+}
+
+.pixeltailor-logo {
+  height: 150px;
+  width: auto;
+}
+
+/* Vertical line separator */
+.logo-group::after {
+  content: '';
+  height: 40px; /* Altura de la línea */
+  width: 1px; /* Grosor de la línea */
+  background-color: rgba(204, 214, 246, 0.3); /* Color con transparencia */
+  margin-left: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .alchemist-logo {
+    height: 30px;
+  }
+
+  .pixeltailor-logo {
+    height: 30px;
+  }
+
+  /* Ocultar separador en móviles */
+  .logo-group::after {
+    display: none;
   }
 }

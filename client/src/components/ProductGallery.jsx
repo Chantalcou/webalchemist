@@ -40,6 +40,7 @@ const ProductGallery = () => {
       </div>
 
       <div className="gallery-container">
+        
         {products.map((product, index) => (
           <div key={index} className="product-card">
             <div className="image-container">

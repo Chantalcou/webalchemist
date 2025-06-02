@@ -16,7 +16,6 @@ const Pricing = () => {
       features: [
         "Landing page profesional",
         "Diseño 100% responsive ",
-        
         "Integración con WhatsApp",
         "Integración con redes sociales"
         // "Tiempo de entrega rápido (5-7 días)",
@@ -107,11 +106,18 @@ const Pricing = () => {
                 Próximamente
               </button>
             ) : (
-              <button
-                className={`plan-button ${index === 1 ? "recommended" : ""}`}
-              >
-                Contratar Ahora
-              </button>
+<button
+  className={`plan-button ${index === 1 ? "recommended" : ""}`}
+  onClick={() => {
+    const mensaje = `Hola! Estoy interesado en el ${plan.name.props?.children?.[1] || "pack"}`;
+    const url = `https://wa.me/1168824488?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+  }}
+>
+  Contratar Ahora
+</button>
+
+
             )}
 
             <div className="maintenance-note">{plan.maintenance}</div>

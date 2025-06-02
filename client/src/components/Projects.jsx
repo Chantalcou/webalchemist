@@ -25,7 +25,7 @@ const Projects = () => {
   const isInView = useInView(ref, { once: false });
 
   return (
-    <section className="projects-section" id="projects" ref={ref}>
+    <section className="projects-section" id='proyect-gallery'  ref={ref}>
       <div className="background-wave"></div>
       
       <motion.div 
@@ -34,10 +34,7 @@ const Projects = () => {
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 1.5 }}
       >
-        <h2 className="section-title">
-          <span>Digital</span>
-          <span>Experiences</span>
-        </h2>
+    
 
         <div className="projects-grid">
           {projects.map((project, index) => (

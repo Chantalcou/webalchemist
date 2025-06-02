@@ -147,3 +147,20 @@
     color: #64ffda;
     margin-bottom: 1rem;
   }
+
+  /* Agrega esto en tu archivo CSS global */
+.cta-button {
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Para dispositivos que prefieren movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .cta-button:hover {
+    transform: none;
+  }
+}
