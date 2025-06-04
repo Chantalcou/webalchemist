@@ -67,7 +67,8 @@
 
 /* Logo Styles */
 .alchemist-logo {
-  height: 100px!important; 
+  height: 80px!important; 
+  padding: 5px 0;
   width: auto;
 }
 

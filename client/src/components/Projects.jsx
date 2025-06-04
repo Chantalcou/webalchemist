@@ -5,17 +5,20 @@ import "./Projects.css";
 const Projects = () => {
   const projects = [
     {
-      title: "Home",
+      title: "Marca personal para artesanos",
+      subtitle: "Diseño de inicio web para luthier",
       image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1747831137/WhatsApp_Image_2025-05-20_at_13.34.55_zs5agf.jpg",
       link: "#"
     },
     {
-      title: "Galeria de productos",
+      title: "Catálogo visual para ecommerce",
+      subtitle: "Galería de productos para emprendimientos",
       image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1746184189/galery_jewdub.png",
       link: "#"
     },
     {
-      title: "Landing",
+      title: "Landing profesional de servicios",
+      subtitle: "Captación de pacientes para profesionales de la salud",
       image: "https://res.cloudinary.com/dqgjcfosx/image/upload/v1746187461/doctors_yct0n8.png",
       link: "#"
     },
@@ -25,7 +28,7 @@ const Projects = () => {
   const isInView = useInView(ref, { once: false });
 
   return (
-    <section className="projects-section" id='proyect-gallery'  ref={ref}>
+    <section className="projects-section" id='proyect-gallery' ref={ref}>
       <div className="background-wave"></div>
       
       <motion.div 
@@ -34,8 +37,6 @@ const Projects = () => {
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 1.5 }}
       >
-    
-
         <div className="projects-grid">
           {projects.map((project, index) => (
             <motion.div 
@@ -60,10 +61,8 @@ const Projects = () => {
                 />
                 <div className="project-overlay">
                   <h3 className="project-title">{project.title}</h3>
+                  <p className="project-subtitle">{project.subtitle}</p>
                   <div className="project-line"></div>
-                  {/* <a href={project.link} className="project-link">
-                    View Project →
-                  </a> */}
                 </div>
               </div>
             </motion.div>

@@ -22,7 +22,7 @@ const Navbar = () => {
         <a href="/" className="logo">
           <div className="logo-group">
             <img
-              src="https://res.cloudinary.com/dqgjcfosx/image/upload/v1748350905/Flux_Dev_Create_a_sleek_modern_logo_for_alchemistwebminimalist_2_vhl6n3-removebg-preview_sszqgr.png"
+              src="https://res.cloudinary.com/dqgjcfosx/image/upload/v1749035631/ChatGPT_Image_4_jun_2025_08_13_39_a.m._phqdbn.png"
               alt="Alchemist Logo"
               className="alchemist-logo"
             />
